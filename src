@@ -1,0 +1,35 @@
+import time
+from selenium import webdriver
+
+drive = webdriver.Chrome(executable_path='./chromedriver')
+link = '' #put your link here
+
+
+#Radio Button
+select1 = ''    #put your XPATH for the element here
+
+submit = '//*[@id="mG61Hd"]/div[2]/div/div[3]/div/div/div'          #standard submit button for most google forms
+
+
+def sleep():
+    time.sleep(2)
+
+
+def sleepSubmit():
+    sleep(3)
+
+
+i = 0
+j = 0;
+while i < 250:
+    drive.get(link)
+    drive.find_element_by_xpath(select1).click()
+    sleep()
+    drive.find_element_by_xpath(submit).click()
+    sleep()
+    drive.get(link)
+    j = j + 1
+    print(j)
+    #le end
+
+drive.quit()
